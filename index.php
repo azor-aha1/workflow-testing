@@ -2,4 +2,4 @@
 
 echo "test...\n";
 
-exit(255);
+exit(0);
