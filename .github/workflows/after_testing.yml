@@ -1,0 +1,16 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    types: [completed]
+
+jobs:
+  release:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: running some deploy release
+        run: echo "running some deploy release"
