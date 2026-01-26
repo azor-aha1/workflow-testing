@@ -32,3 +32,12 @@ jobs:
 
       - name: debug event
         run: cat "$GITHUB_EVENT_PATH"
+
+      - name: retrieving release_version
+        run: |
+          TAG=$(jq -r '.workflow_run.head_ref' "$GITHUB_EVENT_PATH")
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG#releases/}" >> "$GITHUB_OUTPUT"
+
+      - name: Use the release tag name
+        run: echo "The release number is ${{ github.event.release.tag_name }}"
