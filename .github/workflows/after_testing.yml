@@ -29,3 +29,6 @@ jobs:
 
       - name: running some deploy release
         run: echo "running some deploy release"
+
+      - name: debug event
+        run: cat "$GITHUB_EVENT_PATH"
