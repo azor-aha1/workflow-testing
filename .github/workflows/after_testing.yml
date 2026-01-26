@@ -21,5 +21,11 @@ jobs:
       - name: "checking vars 3"
         run: echo "${GITHUB_EVENT_WORKFLOW_RUN_HEAD_BRANCH#releases/}"
 
+      - name: checking vars 4
+        run: echo "${GITHUB_EVENT_WORKFLOW_RUN_HEAD_REF}"
+
+      - name: checking vars 5
+        run: echo "${GITHUB_EVENT_WORKFLOW_RUN_HEAD_REF#releases/}"
+
       - name: running some deploy release
         run: echo "running some deploy release"
