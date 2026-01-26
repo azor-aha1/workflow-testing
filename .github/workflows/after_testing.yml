@@ -12,8 +12,14 @@ jobs:
       github.event.workflow_run.event == 'push'
     runs-on: ubuntu-latest
     steps:
-      - name: "checking vars"
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/releases/}"
+      - name: "checking vars 1"
+        run: echo "${GITHUB_REF}"
+
+      - name: "checking vars 2"
+        run: echo "${GITHUB_REF#refs/tags/releases/}"
+
+      - name: "checking vars 3"
+        run: echo "${GITHUB_EVENT_WORKFLOW_RUN_HEAD_BRANCH#releases/}"
 
       - name: running some deploy release
         run: echo "running some deploy release"
