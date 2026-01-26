@@ -35,7 +35,7 @@ jobs:
 
       - name: retrieving release_version
         run: |
-          TAG=$(jq -r '.workflow_run.head_ref' "$GITHUB_EVENT_PATH")
+          TAG=$(jq -r '.workflow_run.head_branch' "$GITHUB_EVENT_PATH")
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "version=${TAG#releases/}" >> "$GITHUB_OUTPUT"
 
