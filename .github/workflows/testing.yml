@@ -1,9 +1,8 @@
 name: Tests
 
 on:
-  push:
-    tags:
-      - 'releases/*.*.*'
+  workflow_call:
+
 
 jobs:
   tests:
